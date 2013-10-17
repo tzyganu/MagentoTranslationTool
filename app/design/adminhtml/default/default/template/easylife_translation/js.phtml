@@ -1,0 +1,107 @@
+<?php
+/**
+ * Easylife_Translation extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE_EASY_TRANSLATION.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Easylife
+ * @package        Easylife_Translation
+ * @copyright      Copyright (c) 2013
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Js for module autofil
+ *
+ * @category    Easylife
+ * @package     Easylife_Translation
+ * @author      Marius Strajeru <marius.strajeru@gmail.com>
+ */
+?>
+<script type="text/javascript">
+    var EasylifeTranslation = new Class.create();
+    EasylifeTranslation.prototype = {
+        initialize : function(autofilUrl, name){
+            this.name = name;
+            this.autofillUrl = autofilUrl;
+        },
+        autofil: function(){
+            var extensionName = $(this.name).value;
+            var that = this;
+            new Ajax.Request(this.autofillUrl, {
+                method: 'get',
+                parameters: {module: extensionName},
+                onSuccess: function(response){
+                    var result = eval('(' + response.responseText + ')');
+                    if (result.error == 1){
+                        alert(result.message);
+                    }
+                    else{
+                        that.files = result.files;
+                        $('module_codepool').value = result.codepool;
+                        $('module_alias').value = result.helper;
+                        if ($('module_files').value != ''){
+                            that.showWarning();
+                        }
+                        else{
+                            that.overwriteFiles();
+                        }
+                    }
+                }
+            });
+        },
+        showPopup: function(divId) {
+            $(divId).show().setStyle({
+                'marginTop': -$(divId).getDimensions().height / 2 + 'px'
+            });
+//            $('popup-window-mask').setStyle({
+//                height: $('html-body').getHeight() + 'px'
+//            }).show();
+        },
+        showWarning: function(){
+            $('autofil-files').update(this.files.join('<br />'));
+            this.showPopup('autofil-warning');
+        },
+        mergeFiles: function(){
+            $('module_files').value = ($('module_files').value + '\n' + this.files.join('\n'));
+            this.hidePopups();
+        },
+        overwriteFiles: function(){
+            $('module_files').value = this.files.join('\n');
+            this.hidePopups();
+        },
+        cancelFiles: function(){
+            this.hidePopups();
+        },
+        hidePopups: function() {
+            $$('.backup-dialog').each(Element.hide);
+        }
+
+    }
+    var translationInstance = new EasylifeTranslation('<?php echo Mage::helper('adminhtml')->getUrl('*/*/autofill')?>', 'module_name');
+</script>
+<div id="autofil-warning" class="backup-dialog" style="display:none">
+    <div class="entry-edit">
+        <div class="entry-edit-head">
+           <h4 class="head-edit-form fieldset-legend"><?php echo $this->__('Warning')?></h4>
+       </div>
+        <div class="content">
+            <div><?php echo $this->__('The following files were found. The result may not be accurate and may require manual adjustment')?></div>
+            <strong>
+                <div id="autofil-files"></div>
+            </strong>
+            <div><?php echo $this->__('Would you like to merge the files that are already set or overwrite them?');?></div>
+        </div>
+        <div class="buttons-set">
+            <div class="f-right">
+                <button onclick="translationInstance.mergeFiles()" class="scalable " type="button"><span><?php echo $this->__('Merge')?></span></button>
+                <button onclick="translationInstance.overwriteFiles()" class="scalable " type="button"><span><?php echo $this->__('Overwrite')?></span></button>
+                <button onclick="translationInstance.cancelFiles()" class="scalable " type="button"><span><?php echo $this->__('Cancel')?></span></button>
+            </div>
+        </div>
+    </div>
+</div>

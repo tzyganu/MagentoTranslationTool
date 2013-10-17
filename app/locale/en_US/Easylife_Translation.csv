@@ -1,0 +1,87 @@
+Action,Action
+"Add Module","Add Module"
+"Add module","Add module"
+"All Available","All Available"
+"Are you sure?","Are you sure?"
+"Available operations","Available operations"
+CSV,CSV
+Cancel,Cancel
+"Change Codepool","Change Codepool"
+Codepool,Codepool
+"Collect all texts from the specified locale that have the same translation as the key text. Example: ""Search"",""Search"". <br />False positives may occur if the translation of a text is the same in the selected locale.","Collect all texts from the specified locale that have the same translation as the key text. Example: ""Search"",""Search"". <br />False positives may occur if the translation of a text is the same in the selected locale."
+"Collect texts","Collect texts"
+Community,Community
+Core,Core
+"Could not find module to delete.","Could not find module to delete."
+Custom,Custom
+Delete,Delete
+"Delete Module","Delete Module"
+Edit,Edit
+"Edit Module '%s'","Edit Module '%s'"
+Excel,Excel
+"Exclude files","Exclude files"
+Files,Files
+"Fill in the locale code to be used. The name of the folder in app/locale/","Fill in the locale code to be used. The name of the folder in app/locale/"
+"Frontend Themes","Frontend Themes"
+"Frontend themes that will be scanned for translatable texts.","Frontend themes that will be scanned for translatable texts."
+"Generate Locale files","Generate Locale files"
+"Get texts with the same translation","Get texts with the same translation"
+"Handler %s for operation %s cannot be called","Handler %s for operation %s cannot be called"
+"Handler %s for operation %s configured wrong","Handler %s for operation %s configured wrong"
+"Helper alias","Helper alias"
+Id,Id
+"If this is set to YES and a text in a module file is translated using an unknown helper alias, that text will be skipped.<br /> If it is set to NO, then all texts translated with an unknown helper will be added in a file with the same name as the helper alias.","If this is set to YES and a text in a module file is translated using an unknown helper alias, that text will be skipped.<br /> If it is set to NO, then all texts translated with an unknown helper will be added in a file with the same name as the helper alias."
+"If this is set to YES and and a text translation is not found in the specified module then it will be searched in other module translation files.","If this is set to YES and and a text translation is not found in the specified module then it will be searched in other module translation files."
+"Ignore helpers from other modules","Ignore helpers from other modules"
+"List of files and folders to be scanned for translated texts. Add a trailing slash for folder names. Add one file or folder on one line.","List of files and folders to be scanned for translated texts. Add a trailing slash for folder names. Add one file or folder on one line."
+"List of files to be ignored by the scanning process. Add each on one line.","List of files to be ignored by the scanning process. Add each on one line."
+Local,Local
+"Locale Code","Locale Code"
+"Locale not set","Locale not set"
+Merge,Merge
+Module,Module
+"Module %s not found","Module %s not found"
+"Module Name","Module Name"
+"Module name","Module name"
+"Module was successfully deleted.","Module was successfully deleted."
+"Module was successfully saved","Module was successfully saved"
+Modules,Modules
+No,No
+"No file in the locale folder %s","No file in the locale folder %s"
+"No modules specified","No modules specified"
+"OK! Got it.","OK! Got it."
+"One on each line","One on each line"
+Operation,Operation
+"Operation %s does not have a handler","Operation %s does not have a handler"
+"Operation does not exist","Operation does not exist"
+Operations,Operations
+Overwrite,Overwrite
+"Parse the files and folders for the selected modules and retrive a list of translatable texts. One file for each module.","Parse the files and folders for the selected modules and retrive a list of translatable texts. One file for each module."
+"Parse the files and folders of the selected modules and match the translatable texts found with the ones existing in the selected locale. One file for each module will be generated.<br />In the generated files there will be an additional column with the value 'true' or 'false', depending if a translation was found or not in the locale files.<br /> You can later filter the rows in each file to isolate the texts that need translation.","Parse the files and folders of the selected modules and match the translatable texts found with the ones existing in the selected locale. One file for each module will be generated.<br />In the generated files there will be an additional column with the value 'true' or 'false', depending if a translation was found or not in the locale files.<br /> You can later filter the rows in each file to isolate the texts that need translation."
+"Please select modules to delete.","Please select modules to delete."
+"Please select modules.","Please select modules."
+"Prefix theme folders & files with *. For example ""app/design/frontend/*/*/template/catalog/"". This way the files will be searched in all the themes","Prefix theme folders & files with *. For example ""app/design/frontend/*/*/template/catalog/"". This way the files will be searched in all the themes"
+"Save And Continue Edit","Save And Continue Edit"
+"Save Module","Save Module"
+"Select action","Select action"
+"Select modules to be scanned. If All Available is selected then all the modules configured in <a href=""%s"">the module administration</a> section will be scanned","Select modules to be scanned. If All Available is selected then all the modules configured in <a href=""%s"">the module administration</a> section will be scanned"
+Submit,Submit
+"The following files were found. The result may not be accurate and may require manual adjustment","The following files were found. The result may not be accurate and may require manual adjustment"
+"There was a problem saving the module.","There was a problem saving the module."
+"There was an error deleteing module.","There was an error deleteing module."
+"There was an error deleteing modules.","There was an error deleteing modules."
+"There was an error updating modules.","There was an error updating modules."
+"This is the codepool of the module. The folder in app/code where the module files are present.","This is the codepool of the module. The folder in app/code where the module files are present."
+"This is the main helper alias for the module.<br />Example: For module ""Mage_Catalog"" the helper alias is ""catalog"".<br />This is used for translating texts ""Mage::helper(\'catalog\')->__(\'text here\')""","This is the main helper alias for the module.<br />Example: For module ""Mage_Catalog"" the helper alias is ""catalog"".<br />This is used for translating texts ""Mage::helper(\'catalog\')->__(\'text here\')"""
+"This is the name of the module.<br />Example ""Mage_Catalog"", ""Mage_Core"", ""Easylife_Translation""<br />Click on the autofill button to fill in automatically the rest of the fields. The autofill might not be accurate. Manual processing may be needed. Check the files field before submiting.","This is the name of the module.<br />Example ""Mage_Catalog"", ""Mage_Core"", ""Easylife_Translation""<br />Click on the autofill button to fill in automatically the rest of the fields. The autofill might not be accurate. Manual processing may be needed. Check the files field before submiting."
+"This module no longer exists.","This module no longer exists."
+"Total of %d modules were successfully deleted.","Total of %d modules were successfully deleted."
+"Total of %d modules were successfully updated.","Total of %d modules were successfully updated."
+Translation,Translation
+"Try to autofill the rest of the fields","Try to autofill the rest of the fields"
+"Unable to find module to save.","Unable to find module to save."
+"Use any module","Use any module"
+Warning,Warning
+"Would you like to merge the files that are already set or overwrite them?","Would you like to merge the files that are already set or overwrite them?"
+XML,XML
+Yes,Yes

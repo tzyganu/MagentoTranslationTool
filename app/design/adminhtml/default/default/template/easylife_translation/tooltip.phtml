@@ -1,0 +1,29 @@
+<?php
+/**
+ * Easylife_Translation extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE_EASY_TRANSLATION.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Easylife
+ * @package        Easylife_Translation
+ * @copyright      Copyright (c) 2013
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * tooltip html
+ *
+ * @category    Easylife
+ * @package     Easylife_Translation
+ * @author      Marius Strajeru <marius.strajeru@gmail.com>
+ */
+?>
+<?php $width = ($this->getWidth())? $this->getWidth():'300px';?>
+<div class="f-right">
+    <a class="link-store-scope" style="margin:2px;cursor:pointer" onclick="Dialog.alert('<?php echo $this->jsQuoteEscape($this->htmlEscape($this->getMessage()))?>', {className:'magento',height:'auto',width:'<?php echo $width?>',okLabel: '<?php echo Mage::helper('translation')->__('OK! Got it.')?>', buttonClass: 'scalable',id: '<?php echo md5($this->getMessage())?>', title: '<?php echo $this->jsQuoteEscape($this->htmlEscape($this->getTitle()))?>'});return false;">
+    </a>
+</div>

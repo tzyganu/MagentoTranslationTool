@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Easylife_Translation extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE_EASY_TRANSLATION.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Easylife
+ * @package        Easylife_Translation
+ * @copyright      Copyright (c) 2013
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Easylife_Translation>
+            <version>1.0.0</version>
+        </Easylife_Translation>
+    </modules>
+    <global>
+        <resources>
+            <easylife_translation_setup>
+                <setup>
+                    <module>Easylife_Translation</module>
+                    <class>Easylife_Translation_Model_Resource_Setup</class>
+                </setup>
+            </easylife_translation_setup>
+        </resources>
+        <blocks>
+            <translation>
+                <class>Easylife_Translation_Block</class>
+            </translation>
+        </blocks>
+        <helpers>
+            <translation>
+                <class>Easylife_Translation_Helper</class>
+            </translation>
+        </helpers>
+        <models>
+            <translation>
+                <class>Easylife_Translation_Model</class>
+                <resourceModel>translation_resource</resourceModel>
+            </translation>
+            <translation_resource>
+                <class>Easylife_Translation_Model_Resource</class>
+                <entities>
+                    <module>
+                        <table>translation_module</table>
+                    </module>
+                    <module_store>
+                        <table>translation_module_store</table>
+                    </module_store>
+                </entities>
+            </translation_resource>
+        </models>
+        <operations>
+            <collect translate="label description">
+                <label>Collect texts</label>
+                <show_fields>
+                    <ignore />
+                    <themes />
+                    <modules />
+                </show_fields>
+                <handler>translation/handler::collectTexts</handler>
+                <description>Parse the files and folders for the selected modules and retrive a list of translatable texts. One file for each module.</description>
+            </collect>
+            <untranslated translate="label description">
+                <label>Get texts with the same translation</label>
+                <show_fields>
+                    <locale />
+                </show_fields>
+                <handler>translation/handler::getUntranslated</handler>
+                <description><![CDATA[Collect all texts from the specified locale that have the same translation as the key text. Example: "Search","Search". <br />False positives may occur if the translation of a text is the same in the selected locale.]]></description>
+            </untranslated>
+            <generate translate="label description">
+                <label>Generate Locale files</label>
+                <show_fields>
+                    <locale />
+                    <ignore />
+                    <themes />
+                    <modules />
+                    <use_any />
+                </show_fields>
+                <handler>translation/handler::generateLocale</handler>
+                <description><![CDATA[Parse the files and folders of the selected modules and match the translatable texts found with the ones existing in the selected locale. One file for each module will be generated.<br />In the generated files there will be an additional column with the value 'true' or 'false', depending if a translation was found or not in the locale files.<br /> You can later filter the rows in each file to isolate the texts that need translation.]]></description>
+            </generate>
+        </operations>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <easylife_translation>
+                    <file>easylife_translation.xml</file>
+                </easylife_translation>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Easylife_Translation>
+                    <files>
+                        <default>Easylife_Translation.csv</default>
+                    </files>
+                </Easylife_Translation>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Easylife_Translation before="Mage_Adminhtml">Easylife_Translation_Adminhtml</Easylife_Translation>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

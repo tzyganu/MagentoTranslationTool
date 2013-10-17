@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Easylife_Translation extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE_EASY_TRANSLATION.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Easylife
+ * @package        Easylife_Translation
+ * @copyright      Copyright (c) 2013
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <translation translate="title" module="translation">
+                                        <title>Translation</title>
+                                    </translation>
+                                </children>
+                            </config>
+                            <tools>
+                                <children>
+                                    <translation translate="title" module="translation">
+                                        <title>Translation</title>
+                                        <sort_order>100</sort_order>
+                                        <children>
+                                            <module translate="title" module="translation">
+                                                <title>Modules</title>
+                                                <sort_order>10</sort_order>
+                                            </module>
+                                            <operations translate="title" module="translation">
+                                                <title>Operations</title>
+                                                <sort_order>20</sort_order>
+                                            </operations>
+                                        </children>
+                                    </translation>
+                                </children>
+                            </tools>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <system>
+            <children>
+                <tools>
+                    <children>
+                        <translation translate="title" module="translation">
+                            <title>Translation</title>
+                            <sort_order>100</sort_order>
+                            <children>
+                                <module translate="title" module="translation">
+                                    <title>Modules</title>
+                                    <action>adminhtml/translation_module</action>
+                                    <sort_order>10</sort_order>
+                                </module>
+                                <operation translate="title" module="translation">
+                                     <title>Operations</title>
+                                     <action>adminhtml/translation_operation</action>
+                                     <sort_order>20</sort_order>
+                                 </operation>
+                            </children>
+                        </translation>
+                    </children>
+                </tools>
+            </children>
+        </system>
+    </menu>
+</config>

@@ -1,0 +1,7 @@
+#Easylife Translation
+app/etc/modules/Easylife_Translation.xml    app/etc/modules/Easylife_Translation.xml
+app/code/community/Easylife/Translation app/code/community/Easylife/Translation
+app/locale/en_US/Easylife_Translation.csv   app/locale/en_US/Easylife_Translation.csv
+app/design/adminhtml/default/default/layout/easylife_translation.xml    app/design/adminhtml/default/default/layout/easylife_translation.xml
+app/design/adminhtml/default/default/template/easylife_translation  app/design/adminhtml/default/default/template/easylife_translation
+

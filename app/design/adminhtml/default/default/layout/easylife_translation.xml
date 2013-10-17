@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Easylife_Translation extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE_EASY_TRANSLATION.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Easylife
+ * @package        Easylife_Translation
+ * @copyright      Copyright (c) 2013
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <!-- Modules grid action -->
+    <adminhtml_translation_module_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/tools/translation/module</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="translation/adminhtml_module" name="module" />
+        </reference>
+    </adminhtml_translation_module_index>
+
+    <adminhtml_translation_module_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="translation/adminhtml_module_grid" name="module_grid"/>
+        </block>
+    </adminhtml_translation_module_grid>
+
+    <!-- Module add/edit action -->
+    <adminhtml_translation_module_edit>
+        <update handle="easylife_tooltips" />
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/tools/translation/module</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="translation/adminhtml_module_edit" name="module_edit"></block>
+            <block type="core/template" template="easylife_translation/js.phtml" name="translation_js" as="translation_js" />
+        </reference>
+        <reference name="left">
+            <block type="translation/adminhtml_module_edit_tabs" name="module_tabs"></block>
+        </reference> 
+    </adminhtml_translation_module_edit>
+
+
+    <adminhtml_translation_operation_edit>
+        <update handle="easylife_tooltips" />
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>system/tools/translation/operation</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="translation/adminhtml_operation_edit" name="module_edit"></block>
+            <block type="core/template" template="easylife_translation/operation.phtml" name="operation_js" as="operation_js" />
+        </reference>
+    </adminhtml_translation_operation_edit>
+
+    <easylife_tooltips>
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addCss"><css>lib/prototype/windows/themes/magento.css</css></action>
+        </reference>
+    </easylife_tooltips>
+</layout>
