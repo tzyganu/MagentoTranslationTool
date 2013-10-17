@@ -1,0 +1,4 @@
+MagentoTranslationTool
+======================
+
+EasylifeTranslation
