@@ -232,7 +232,7 @@ class Easylife_Translation_Model_Handler extends Varien_Object {
                     $realFiles = glob(trim($_file));
                     foreach ($realFiles as $realFile) {
                         if (!in_array($realFile, $module->getExcludedFiles(true))) {
-                            $texts = $this->mergeTexts($texts, $this->getFileTexts($realFile, $module->getName()));
+                            $texts = $this->mergeTexts($texts, $this->getFileTexts($realFile, $module));
                         }
                     }
                 }
@@ -334,7 +334,7 @@ class Easylife_Translation_Model_Handler extends Varien_Object {
             }
             if (preg_match_all(self::THIS_PATTERN, $line, $matches, PREG_SET_ORDER)) {
                 foreach ($matches as $k => $match) {
-                    $moduleName     = $module;
+                    $moduleName     = $module->getName();
                     $translationKey = $match[2];
                     $texts[$moduleName][$translationKey] = $translationKey;
                 }
@@ -378,6 +378,7 @@ class Easylife_Translation_Model_Handler extends Varien_Object {
             $translationKey = $translate['value'];
             $texts[$moduleName][$translationKey] = $translationKey;
         }
+
         return $texts;
     }
 
@@ -390,7 +391,7 @@ class Easylife_Translation_Model_Handler extends Varien_Object {
      * @author Marius Strajeru <marius.strajeru@gmail.com>
      */
     public function getXmlTranslates($xmlNode, $module = null){
-        if (is_null($module)) {
+        if (!is_string($module)) {
             $module = $module->getAlias();
         }
         $translate = array();
@@ -399,12 +400,11 @@ class Easylife_Translation_Model_Handler extends Varien_Object {
             if (isset($attributes['translate'])) {
                 $module = isset($attributes['module']) ? (string)$attributes['module'] : $module;
                 $translateNodes = explode(' ', $attributes['translate']);
-
                 foreach ($translateNodes as $nodeName) {
                     if (!(string)$node->$nodeName) {
                         continue;
                     }
-                    if (!$this->getIgnoreHelpers() || in_array($module, $this->_helpers)){
+                    if (!$this->getIgnoreHelpers() || in_array($module, array_keys($this->_helpers))){
                         $translate[] = array(
                             'module'    => $module,
                             'value'     => (string)$node->$nodeName,
