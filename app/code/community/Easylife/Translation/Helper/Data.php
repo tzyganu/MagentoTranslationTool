@@ -35,7 +35,7 @@ class Easylife_Translation_Helper_Data extends Mage_Core_Helper_Abstract {
         $node = $xml->global->helpers;
         if ($node) {
             foreach ((array)$node as $key=>$value) {
-                if (isset($value['class'])) {
+                if (!empty($value->class)) {
                     $helper = $key;
                 }
             }
