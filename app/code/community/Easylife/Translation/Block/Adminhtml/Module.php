@@ -33,6 +33,24 @@ class Easylife_Translation_Block_Adminhtml_Module extends Mage_Adminhtml_Block_W
         $this->_blockGroup         = 'translation';
         $this->_headerText         = Mage::helper('translation')->__('Module');
         $this->_addButtonLabel     = Mage::helper('translation')->__('Add Module');
+
+        $this->_addButton('import_modman', array(
+            'label'     => Mage::helper('translation')->__('import via Modman'),
+            'onclick'   => 'setLocation(\'' . $this->getImportUrl('modman') .'\')',
+            'class'     => 'add',
+        ));
+
         parent::__construct();
+    }
+    /**
+     * build import url
+     * @access public
+     * @param $method string
+     * @return string
+     * @author Sander Mangel <sander@sandermangel.nl>
+     */
+    public function getImportUrl($method)
+    {
+        return $this->getUrl('*/translation_import/'.$method);
     }
 }
