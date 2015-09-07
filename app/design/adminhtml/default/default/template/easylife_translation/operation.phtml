@@ -46,8 +46,7 @@ EasylifeTranslationOperation.prototype = {
         }
         for (i in fields){
             if (fields.hasOwnProperty(i)){
-                console.log(allowedFields[fields[i]]);
-                if (typeof allowedFields[fields[i]] != 'undefined'){
+                if (typeof allowedFields[fields[i]] != 'undefined' && allowedFields[fields[i]] != 0){
                     $('operation_' + fields[i]).up(1).show();
                     $('operation_' + fields[i]).disabled = false;
                 }

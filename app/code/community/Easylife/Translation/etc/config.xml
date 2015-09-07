@@ -62,9 +62,9 @@
             <collect translate="label description">
                 <label>Collect texts</label>
                 <show_fields>
-                    <ignore />
-                    <themes />
-                    <modules />
+                    <ignore>1</ignore>
+                    <themes>1</themes>
+                    <modules>1</modules>
                 </show_fields>
                 <handler>translation/handler::collectTexts</handler>
                 <description>Parse the files and folders for the selected modules and retrive a list of translatable texts. One file for each module.</description>
@@ -72,7 +72,7 @@
             <untranslated translate="label description">
                 <label>Get texts with the same translation</label>
                 <show_fields>
-                    <locale />
+                    <locale>1</locale>
                 </show_fields>
                 <handler>translation/handler::getUntranslated</handler>
                 <description><![CDATA[Collect all texts from the specified locale that have the same translation as the key text. Example: "Search","Search". <br />False positives may occur if the translation of a text is the same in the selected locale.]]></description>
@@ -80,11 +80,11 @@
             <generate translate="label description">
                 <label>Generate Locale files</label>
                 <show_fields>
-                    <locale />
-                    <ignore />
-                    <themes />
-                    <modules />
-                    <use_any />
+                    <locale>1</locale>
+                    <ignore>1</ignore>
+                    <themes>1</themes>
+                    <modules>1</modules>
+                    <use_any>1</use_any>
                 </show_fields>
                 <handler>translation/handler::generateLocale</handler>
                 <description><![CDATA[Parse the files and folders of the selected modules and match the translatable texts found with the ones existing in the selected locale. One file for each module will be generated.<br />In the generated files there will be an additional column with the value 'true' or 'false', depending if a translation was found or not in the locale files.<br /> You can later filter the rows in each file to isolate the texts that need translation.]]></description>
