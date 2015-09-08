@@ -84,9 +84,11 @@ class Easylife_Translation_Adminhtml_Translation_ImportController extends Mage_A
                                 // if so get helper namespace from config.xml
                                 try {
                                     $sxe = new SimpleXMLElement(file_get_contents($destination . DS . 'etc' . DS . 'config.xml'));
+                                    if ($sxe->xpath('/config/global/helpers')) {
                                     foreach ($sxe->xpath('/config/global/helpers')[0]->children() as $child)
-                                    {
-                                        $modules[$path]['helper'] = $child[0]->getName();
+                                        {
+                                            $modules[$path]['helper'] = $child[0]->getName();
+                                        }
                                     }
                                 } catch (Exception $e) {
                                     Mage::getSingleton('admin/session')->addWarning("No valid config.xml found for module '{$module}'");
